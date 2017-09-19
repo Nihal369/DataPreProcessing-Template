@@ -29,5 +29,14 @@ x=oneHotEncoder.fit_transform(x).toarray()
 labelEncoder_y = LabelEncoder()
 y=labelEncoder_y.fit_transform(y)
 
+#Making of Training and Test sets
+from sklearn.cross_validation import train_test_split
+xtrain,xtest,ytrain,ytest= train_test_split(x,y,test_size=0.2)
+
+#Feature Scaling
+from sklearn.preprocessing import StandardScaler
+scaler=StandardScaler()
+xtrain=scaler.fit_transform(xtrain)
+xtest=scaler.transform(xtest)
 
 
